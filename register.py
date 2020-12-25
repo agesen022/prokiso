@@ -36,6 +36,10 @@ def top():
 
 @app.route('/register')
 def register():
+    return render_template('register.html')
+
+@app.route('/watch')
+def watch():
     page = request.args.get('circle')
     key_list = Worksheet.col_values(9) #query parameter
     row_number = -1
