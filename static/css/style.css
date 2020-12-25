@@ -56,7 +56,7 @@ footer {
 
 /* トップページ：ヒーローイメージ */
 .hero {
-    background-image: url(img/top.jpg);
+    background-image: url('/static/img/top.jpg');
     background-size: cover;
     background-position: center;
     height: 532px;
@@ -108,7 +108,10 @@ footer {
     text-align: center;
     margin: 0px;
 }
-
+/* 検索ページ */
+.searchResults h1,p{
+    text-align: center;
+}
 /* ====PC版==== */
 @media (min-width: 600px) {
     /* 「ヘッダー」ブロック */

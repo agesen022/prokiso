@@ -1,13 +1,41 @@
-{% extends "layout.html" %}
-{% block content %}
-<h1>"{{searchTerm}}" 検索結果</h1>
-{% for circle in circles %}
-   <p> {{circle.name}} </p>
-   <p> {{circle.genre}}  </p> 
-   <p> {{circle.space}}  </p>
-   <p> {{circle.univ }}  </p>
-   <p> {{circle.intro }} </p>
-   <p> {{circle.key }}   </p>
-   <p> {{circle.url }}   </p>
-{% endfor %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>オンラインテント列</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="top.html">オンラインテント列</a>
+            
+        <nav>
+            <ul>
+                <li><a href="#search">検索</a></li>
+                <li><a href="#calender">カレンダー</a></li>
+                <li><a href="register.html">登録</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="searchResults">
+            <h1>"{{searchTerm}}" 検索結果</h1>
+            {% for circle in circles %}
+                <p> {{circle.name}} </p>
+                <p> {{circle.genre}}  </p> 
+                <p> {{circle.space}}  </p>
+                <p> {{circle.univ }}  </p>
+                <p> {{circle.intro }} </p>
+                <p> {{circle.key }}   </p>
+                <p> {{circle.url }}   </p>
+            {% endfor %}
+            <hr>
+        </section>
+    </main>
+    <footer>
+        お問い合わせ先：torimomo@gmail.com
+    </footer>
+    
+</body>
+</html>

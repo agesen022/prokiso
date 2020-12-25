@@ -87,7 +87,7 @@ def show_search_results(searchTerm):
         univ = Worksheet.cell(row_number,5).value
         intro = Worksheet.cell(row_number,6).value
         key = Worksheet.cell(row_number,8).value
-        url = request.base_url +"?circle=" +  Worksheet.cell(row_number,9).value
+        url = request.url_root +"register?circle=" +  Worksheet.cell(row_number,9).value
         matched_circles.append(
             {
                 "name": name,
