@@ -26,9 +26,13 @@ class SearchForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
 
 
-@app.route('/')
-def Hello():
-    return 'HELLO'
+@app.route('/',methods=["GET", "POST"])
+def top():
+    form = SearchForm()
+    if form.validate_on_submit():
+        print(form.name)
+        return redirect('/search_results/' + form.name.data)
+    return render_template('top.html', form=form)
 
 @app.route('/register')
 def register():
@@ -70,13 +74,6 @@ def watch():
     mailAddress=mailAddress,
     otherWays=otherWays,)
 
-@app.route('/submit', methods=('GET', 'POST'))
-def search():
-    form = SearchForm()
-    if form.validate_on_submit():
-        print(form.name)
-        return redirect('/search_results/' + form.name.data)
-    return render_template('submit.html', form=form)
 
 @app.route('/search_results/<searchTerm>',methods=['GET', 'POST'])
 def show_search_results(searchTerm):
