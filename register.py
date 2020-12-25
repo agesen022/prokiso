@@ -15,7 +15,7 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 credentials = ServiceAccountCredentials.from_json_keyfile_name('prokiso-fd10525a5501.json',scope)
 gc = gspread.authorize(credentials)
 SPREADSHEET_KEY = '1eYy8_9XgbZjSWdPWX4wuruXKW3R6Cbv35wWILX_dyQc'
-Worksheet = gc.open_by_key(SPREADSHEET_KEY)
+Worksheet = gc.open_by_key(SPREADSHEET_KEY).sheet1
 SECRET_KEY = os.urandom(32)
 
 app=Flask(__name__)
@@ -76,8 +76,33 @@ def search():
 
 @app.route('/search_results/<searchTerm>',methods=['GET', 'POST'])
 def show_search_results(searchTerm):
-    result = Worksheet.sheet1.findall(searchTerm)
-    return render_template('hello.html', name1=result)
+    results = Worksheet.findall(searchTerm)
+    matched_circles = []
+    added_row = []
+    for result in results:
+        row_number = result.row
+        if row_number in added_row:
+            continue
+        added_row.append(row_number)
+        name = Worksheet.cell(row_number,2).value
+        genre = Worksheet.cell(row_number,3).value
+        space = Worksheet.cell(row_number,4).value
+        univ = Worksheet.cell(row_number,5).value
+        intro = Worksheet.cell(row_number,6).value
+        key = Worksheet.cell(row_number,8).value
+        url = request.base_url +"?circle=" +  Worksheet.cell(row_number,9).value
+        matched_circles.append(
+            {
+                "name": name,
+                "genre": genre,
+                "space": space,
+                "univ": univ,
+                "intro": intro,
+                "key": key,
+                "url":url
+            }
+        )
+    return render_template('searchResult.html', circles=matched_circles,searchTerm=searchTerm)
 
    
 
