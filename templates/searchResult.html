@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>"{{searchTerm}}" 検索結果</h1>
+{% for circle in circles %}
+   <p> {{circle.name}} </p>
+   <p> {{circle.genre}}  </p> 
+   <p> {{circle.space}}  </p>
+   <p> {{circle.univ }}  </p>
+   <p> {{circle.intro }} </p>
+   <p> {{circle.key }}   </p>
+   <p> {{circle.url }}   </p>
+{% endfor %}
+{% endblock %}
