@@ -57,14 +57,14 @@
             <article>
                 <h1>連絡先</h1>
             
-                <ol>
+                <ul list-style:none>
                     <li>LINEid:{{ lineId }}</li>
-                    <li>webサイト:{{ webSite }}</li>
+                    <li>サイト:<a href="{{ website }}">{{ webSite }}</a></li>
                     <li>Twitter:{{ twitterId }}</li>
                     <li>Instagram:{{ instagramId }}</li>
                     <li>mail:{{ mailAddress }}</li>
                     <li>その他:{{ otherWays }}</li>
-                </ol>
+                </ul>
             </article>
         </section>
     </main>

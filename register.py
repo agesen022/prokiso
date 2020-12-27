@@ -45,7 +45,7 @@ def watch():
     row_number = -1
     for i, key in enumerate(key_list):
         if key == page:
-            row_number = i
+            row_number = i+1
             break
     name = Worksheet.cell(row_number,2).value
     genre = Worksheet.cell(row_number,3).value
