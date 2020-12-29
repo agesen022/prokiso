@@ -101,9 +101,7 @@ footer {
 ​
 .container article {
     background-color: #f1a6c0;
-    height: 200px;
     position: relative;
-    padding-top: 100px;
     box-sizing: border-box;
 }
 ​
@@ -128,6 +126,8 @@ footer {
 .container article p {
     text-align: center;
     margin: 0px;
+    word-wrap: break-word;
+    padding: 0px 10% 0px 10%;
 }
 ​
 /* ====PC版==== */
@@ -169,8 +169,6 @@ footer {
 ​
     .container article {
         width: 60%;
-        height: 200px;
-        padding-top: 100px;
     }
 ​
     .container > :not(:first-child) {
