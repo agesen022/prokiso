@@ -2,29 +2,74 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>{{ name }}</title>
-<!--    
-    <link rel="stylesheet" href="/stylesheets/reset.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="icon" href="/images/favicon.ico"/>
--->
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <h1>{{ name }}</h1>
-    <p>活動ジャンル：{{ genre }}</p>
-    <p>活動場所：{{ space }}</p>
-    <p>構成大学：{{ univ }}</p>
-    <p>サークル紹介：{{ intro }}</p>
-    <img src="" alt="紹介画像">
-    <p>キーワード：{{ key }}</p>
-    <p>アクセス</p>
-    <ol>
-        <li>LINEid:{{ lineId }}</li>
-        <li>webサイト:{{ webSite }}</li>
-        <li>Twitter:{{ twitterId }}</li>
-        <li>Instagram:{{ instagramId }}</li>
-        <li>mail:{{ mailAddress }}</li>
-        <li>その他:{{ otherWays }}</li>
-    </ol>
+    <header>
+        <a href="top.html">オンラインテント列</a>
+            
+        <nav>
+            <ul>
+                <li><a href="#search">検索</a></li>
+                <li><a href="#calender">カレンダー</a></li>
+                <li><a href="register.html">登録</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="intro">
+        <section class="container">
+            <h1>{{ name }}</h1>
+        </section>
+    ​
+        <section class="container">
+            <article>
+                <h1>活動ジャンル</h1>
+                <br>
+                <p>{{ genre }}</p>
+            </article>
+            
+            <article>
+                <h1>活動場所</h1>
+                <br>
+                <p>{{ space }}</p>
+            </article>
+    ​
+            <article>
+                <h1>構成大学</h1>
+                <br>
+                <p>{{ univ }}</p>
+            </article>
+    ​
+            <article>
+                <h1>サークル紹介</h1>
+                <br>
+                <p>{{ intro }}</p>
+            </article>
+    ​
+            <article>
+                <h1>キーワード</h1>
+                <br>
+                <p>{{ key }}</p>
+            </article>
+    ​
+            <article>
+                <h1>連絡先</h1>
+                <br>
+                <ul list-style:none>
+                    <li>LINEid:{{ lineId }}</li>
+                    <li>サイト:<a href="{{ website }}">{{ webSite }}</a></li>
+                    <li>Twitter:{{ twitterId }}</li>
+                    <li>Instagram:{{ instagramId }}</li>
+                    <li>mail:{{ mailAddress }}</li>
+                    <li>その他:{{ otherWays }}</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <footer>
+        お問い合わせ先：torimomo@gmail.com
+    </footer>
 </body>
 </html>
