@@ -22,13 +22,12 @@
         <section class="searchResults">
             <h1>"{{searchTerm}}" 検索結果</h1>
             {% for circle in circles %}
-                <p> {{circle.name}} </p>
+                <a href="{{ circle.url }}">{{circle.name}}</a>
                 <p> {{circle.genre}}  </p> 
                 <p> {{circle.space}}  </p>
                 <p> {{circle.univ }}  </p>
                 <p> {{circle.intro }} </p>
                 <p> {{circle.key }}   </p>
-                <p> {{circle.url }}   </p>
             {% endfor %}
             <hr>
         </section>

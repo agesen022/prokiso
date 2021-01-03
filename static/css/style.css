@@ -109,7 +109,7 @@ footer {
     margin: 0px;
 }
 /* 検索ページ */
-.searchResults h1,p{
+.searchResults h1,p,a{
     text-align: center;
 }
 /* ====PC版==== */
