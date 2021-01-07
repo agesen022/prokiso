@@ -10,7 +10,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Required
 
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('prokiso-fd10525a5501.json',scope)
@@ -24,16 +24,23 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 # 検索フォームの設定
 class SearchForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
+    name = StringField('name', validators=[Required()])
 
 
 @app.route('/',methods=["GET", "POST"])
 def top():
     form = SearchForm()
     if form.validate_on_submit():
-        print(form.name)
+        print("test")
         return redirect('/search_results/' + form.name.data)
     return render_template('top.html', form=form)
+
+@app.route("/submit", methods=["GET", "POST"])
+def submit():
+    form= SearchForm()
+    if form.validate_on_submit():
+        print("test2")
+        return redirect('/search_results/' + form.name.data)
 
 @app.route('/register')
 def register():
